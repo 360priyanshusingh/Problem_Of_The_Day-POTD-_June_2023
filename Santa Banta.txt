@@ -1,0 +1,53 @@
+  void precompute() {
+        vector<bool> isPrime(maxi, true);
+        isPrime[0] = isPrime[1] = false;
+        
+        for(int i = 2; i * i <= maxi; i++) {
+            if(isPrime[i]) {
+                for(int j = i * i; j <= maxi; j += i)
+                    isPrime[j] = false;
+            }
+        }
+        
+        for(int i = 2; i <= maxi; i++)
+            if(isPrime[i])
+                primes.push_back(i);
+    }
+    
+    void dfs(vector<vector<int>> &g,int node, vector<bool> &vis,int &c){
+        if(vis[node]==true) return ;
+        c++;
+        vis[node]=true;
+        for(auto a:g[node]){
+            if(a==node || vis[a]==true ) continue;
+            dfs(g,a,vis,c);
+        }
+        
+        
+    }
+    
+    int helpSanta(int n, int m, vector<vector<int>> &g){
+        // Code here
+        
+        vector<int> adj[n+1];
+        // for(int i=0;i<g.size();i++){
+        //   adj[g[i][0]].push_back(g[i][1]);
+        //   adj[g[i][1]].push_back(g[i][0]);
+        // }
+        int masa=0;
+        vector<bool> vis(n+1,false);
+        
+        for(int i=1;i<=n;i++){
+            if(vis[i]==false){
+                int c=0;
+                dfs(g,i,vis,c);
+                masa=max(masa,c);
+                // cout<<c<<" ";
+            }
+        }
+       if(masa==1) return -1;
+        
+        
+        return primes[masa-1];
+        
+    }
