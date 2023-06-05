@@ -1,0 +1,24 @@
+	void DFS(Node root,int k,int &mina){ 
+	    if(root==NULL){
+	      return ;   
+	    }
+	    
+	    mina=min(mina,abs(k-root-data));
+	    if(root-datak){
+	        DFS(root-left,k,mina);
+	    }
+	    if(root-datak){
+	        DFS(root-right,k,mina);
+	    }
+	    
+	    return ;
+	}
+	
+    int minDiff(Node root, int K)
+    {
+        Your code here
+        
+        int mina=INT_MAX;
+        DFS(root,K,mina);
+        return mina;
+    }
