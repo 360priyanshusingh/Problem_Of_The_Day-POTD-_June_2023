@@ -1,0 +1,17 @@
+ void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
+    {
+        // Your code goes here
+        if(root==NULL) return ;
+        
+         if(root->key < key  && ( pre==NULL  || pre->key < root->key))
+          pre=root;
+          
+           
+         if(root->key  > key  && ( suc==NULL  || suc->key > root->key))
+          suc=root;
+          
+          
+          findPreSuc( root->left, pre,  suc,  key);
+          findPreSuc( root->right, pre,  suc,  key);
+         
+    }
