@@ -1,0 +1,29 @@
+void helper(string s,set<string> &se,int index){
+	        if(index==s.size()){
+	            se.insert(s);
+	             return ;
+	        }
+	        
+	        for(int i=index;i<s.size();i++){
+	            swap(s[i],s[index]);
+	            helper(s,se,index+1);
+	            swap(s[i],s[index]);
+	        }
+	        
+	    }
+		vector<string>find_permutation(string s)
+		{
+		    // Code here there
+		    set<string> se;
+		    sort(s.begin(),s.end());
+		    helper(s,se,0);
+		    vector<string> ans;
+		    
+		    for(auto a:se){
+		     
+		        ans.push_back(a);
+		    }
+		    
+		    return ans;
+		    
+		}
