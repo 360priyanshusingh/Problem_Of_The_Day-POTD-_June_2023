@@ -1,0 +1,17 @@
+int distributeTicket(int N, int k) {
+        // code here
+        deque<int> d;
+        for(int i=1;i<=N;i++){
+            d.push_back(i);
+        }
+        
+        while(d.size()>1){
+            int i=k,j=k;
+            while(i-- && d.size()>1) d.pop_front();
+            // cout<<d.size();
+            while(j-- && d.size()>1) d.pop_back();
+           
+        }
+        
+        return d.back();
+    }
