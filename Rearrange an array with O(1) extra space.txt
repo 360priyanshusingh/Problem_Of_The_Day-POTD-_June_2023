@@ -1,0 +1,12 @@
+  void arrange(long long arr[], int n) {
+         Your code here
+        vectorint ans;
+        for(int i=0;in;i++){
+        arr[i]+=(arr[arr[i]] %n)n;
+        }
+      
+           for(int i=0;in;i++)
+      {
+          arr[i] = (arr[i]n);
+      }
+    }
