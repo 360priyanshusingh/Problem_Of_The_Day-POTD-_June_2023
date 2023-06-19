@@ -1,0 +1,30 @@
+  void insert(queue<int> &q, int k){
+        // Your code here
+        q.push(k);
+        // mp[k]++;
+    }
+    
+    // Function to find frequency of an element
+    // return the frequency of k
+    int findFrequency(queue<int> &q, int k){
+        // Your code here
+         
+         int s=q.size();
+         int count=0;
+         while(s--){
+             int f=q.front();
+             q.pop();
+             if(f==k){
+                 count++;
+             }
+             q.push(f);
+             
+         }
+        
+        // if(mp.find(k)!=mp.end()){
+        //     return mp[k];
+        // }
+        if(count==0) return -1;
+        
+        return count;
+    }
