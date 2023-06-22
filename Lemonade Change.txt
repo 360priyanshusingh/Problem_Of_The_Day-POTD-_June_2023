@@ -1,0 +1,33 @@
+ bool lemonadeChange(int N, vector<int> &bills) {
+        // code here
+        int five=0,ten=0,tew=0;
+        
+        
+        for(auto a:bills){
+            if(a==5){
+                five++;
+            }
+            else if(a==10){
+                if(five<1){
+                    return false;
+                }
+                else{
+                    five--;
+                    ten++;
+                }
+            }
+            else{
+                 if(five<1){
+                    return false;
+                }
+                else if(ten<1 && five<3) return false;
+                
+                else if(ten>0 && five>0) ten--,five--;
+                
+                else   five-=3;
+            }
+        }
+        
+        
+        return true;
+    }
