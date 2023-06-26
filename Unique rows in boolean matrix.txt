@@ -1,0 +1,29 @@
+ vector<vector<int>> uniqueRow(int M[MAX][MAX],int row,int col)
+    {
+        //Your code here
+        unordered_map<string,int> mp;
+        vector<vector<int>> ans;
+        
+        for(int i=0;i<row;i++){
+            string a="";
+            for(int j=0;j<col;j++){
+                 a+=to_string(M[i][j]);
+            }
+            // cout<<a<<" ";
+            mp[a]++;
+            vector<int> v;
+            if(mp[a]==1){
+                 for(int j=0;j<col;j++){
+                    v.push_back(M[i][j]);
+                }
+                 ans.push_back(v);
+            }
+           
+        }
+       
+      
+       
+      
+       
+       
+       return ans;
