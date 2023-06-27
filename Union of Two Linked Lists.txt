@@ -1,0 +1,32 @@
+struct Node* makeUnion(struct Node* head1, struct Node* head2)
+    {
+        // code here
+        priority_queue<int,vector<int>,greater<int> > pq;
+        Node* dumy=new Node(0);
+        Node* tem=dumy;
+        unordered_set<int> s;
+        while(head1!=NULL ){
+           pq.push(head1->data);
+           head1=head1->next;
+        }
+        
+       while(head2!=NULL ){
+           pq.push(head2->data);
+           head2=head2->next;
+        }
+        
+        while(!pq.empty()){
+            int g=pq.top();
+            // cout<<g<<" ";
+            if(s.find(g)==s.end())
+             {
+                Node* dumynew=new Node(g);
+             dumy->next=dumynew;
+             dumy=dumy->next;
+             }
+            s.insert(g);
+             pq.pop();
+        }
+        
+        return tem->next;
+    }
