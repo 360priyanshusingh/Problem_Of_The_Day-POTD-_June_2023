@@ -1,0 +1,18 @@
+class Solution{
+  public:
+    /*You are required to complete this method*/
+    int ans=0;
+    void  helper(Node *root,int level){
+        if(root==NULL) return ;
+        ans=max(ans,level);
+        helper(root->left,level+1);
+        helper(root->right,level+1);
+    }
+    
+    int maxDepth(Node *root) {
+        // Your code here
+      
+        helper(root,0);
+        return ans+1;
+    }
+};
