@@ -1,0 +1,39 @@
+   long long  binary_to_deci(string s){
+        long long sum=0;
+        
+        for(int i=0;i<s.size();i++){
+            int bit=s[i]-'0';
+           sum=(sum*2+bit)%3;
+        }
+        
+        return sum;
+    }
+		
+	int isDivisible(string s){
+	    //complete the function here
+	    
+	    if(binary_to_deci(s)==0){
+	        return 1;
+	    }
+	    
+	    return 0;
+	}   long long  binary_to_deci(string s){
+        long long sum=0;
+        
+        for(int i=0;i<s.size();i++){
+            int bit=s[i]-'0';
+           sum=(sum*2+bit)%3;
+        }
+        
+        return sum;
+    }
+		
+	int isDivisible(string s){
+	    //complete the function here
+	    
+	    if(binary_to_deci(s)==0){
+	        return 1;
+	    }
+	    
+	    return 0;
+	}
